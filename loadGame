@@ -1,0 +1,14 @@
+#!/bin/bash
+if [[ -z "$1" ]]; then
+  echo "Error: specify folder"
+  exit 1
+fi
+if [ $1 == "snes" ]; then
+  echo "copying..."
+  scp -r ./ gpi:~/RetroPie/roms/$1
+  if [ $? == 0 ]; then
+    echo "finished"
+  else
+    echo "Error: copying failed"
+  fi
+fi
